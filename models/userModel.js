@@ -1,4 +1,4 @@
-const { default: mongoose, Schema } = require("mongoose");
+const { default: mongoose, Schema, isValidObjectId } = require("mongoose");
 
 const userSchma = new Schema ({
     name:{
@@ -26,7 +26,12 @@ const userSchma = new Schema ({
     },
     otp:{
         type:String,
+    },
+    isverify:{
+        type:Boolean,
+        default:false,   
     }
-
+},{
+    timestamps:true,
 })
 module.exports =mongoose.model("user",userSchma)
